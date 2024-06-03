@@ -36,11 +36,20 @@ if [ ! -d "$OUTPUT_FOLDER" ]; then
     mkdir -p "$OUTPUT_FOLDER"
 fi
 
+# Flag to check if any files were found
+files_found=false
+
 # Copy files matching the pattern from input folder to output folder
-for file in "$INPUT_FOLDER"/*; do
-    if [[ "$(basename "$file")" == $PATTERN ]]; then
+for file in "$INPUT_FOLDER"/$PATTERN; do
+    if [ -e "$file" ]; then
+        echo "Found file: $file"
         cp "$file" "$OUTPUT_FOLDER"
+        files_found=true
     fi
 done
 
-echo "Files matching pattern '$PATTERN' have been copied from '$INPUT_FOLDER' to '$OUTPUT_FOLDER'."
+if [ "$files_found" = true ]; then
+    echo "Files matching pattern '$PATTERN' have been copied from '$INPUT_FOLDER' to '$OUTPUT_FOLDER'."
+else
+    echo "No files matching pattern '$PATTERN' found in '$INPUT_FOLDER'."
+fi
