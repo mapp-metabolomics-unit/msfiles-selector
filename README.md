@@ -19,5 +19,5 @@ chmod +x copy_files.sh
 Example
 
 ```bash
-./copy_files.sh -i /media/share/mapp/public/QE_plus_unifr/converted -o /media/share/mapp/public/QE_plus_unifr/tmp -p "20240405_CVOL_*.mzML"
+./copy_files.sh -i /media/share/mapp/public/QE_plus_unifr/converted -o /msdata/dbgi_project_00002/cuso_batch_00001/ -p "202406251749_PMA_dbgi_*.mzML"
 ```
